@@ -1,0 +1,24 @@
+{
+  "name": "Azure DevOps Local MCP Server",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:20",
+  "hostRequirements": {
+    "cpus": 2,
+    "memory": "8gb"
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20"
+    },
+    "ghcr.io/devcontainers/features/azure-cli:1": {}
+  },
+  "postCreateCommand": "rm -f .npmrc && npm install && npm install -g . ; az login --use-device-code",
+  "customizations": {
+    "codespaces": {
+      "openFiles": ["CONTRIBUTING.md"]
+    },
+    "vscode": {
+      "extensions": ["ms-azuretools.vscode-docker", "EditorConfig.EditorConfig", "GitHub.copilot", "dbaeumer.vscode-eslint", "esbenp.prettier-vscode", "ms-vscode.vscode-typescript-next"]
+    }
+  },
+  "remoteUser": "node"
+}
